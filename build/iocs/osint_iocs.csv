@@ -1,9 +1,9 @@
 ioc_value,ioc_type,confidence
-185.81.68.90,ip,88
-185.82.113.99,ip,93
-malicious.com,domain,91
-badactor.net,domain,74
-2ddbdd712c056f34bd0aa2cc,hash,85
-193.42.157.198,hash,71
-malwaredrop.org,hash,82
-185.83.60.186,ip,89
+185.81.68.90,domain,77
+185.82.113.99,ip,94
+malicious.com,hash,80
+badactor.net,hash,80
+2ddbdd712c056f34bd0aa2cc,ip,92
+193.42.157.198,ip,73
+malwaredrop.org,domain,73
+185.83.60.186,hash,92
