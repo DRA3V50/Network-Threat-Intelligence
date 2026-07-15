@@ -555,24 +555,25 @@ Elevated activity may indicate:
 
 
 
+
 <!-- AUTO-GENERATED-START -->
 
 # Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** 2026-07-14 20:10
+**Last Updated (UTC):** 2026-07-15 05:30
 
 ---
 
 ## Threat Intelligence Overview
 | ioc_value                | ioc_type   |   confidence |
 |:-------------------------|:-----------|-------------:|
-| malicious.com            | domain     |           93 |
-| malwaredrop.org          | domain     |           91 |
-| 193.42.157.198           | ip         |           88 |
-| 185.82.113.99            | hash       |           88 |
-| 2ddbdd712c056f34bd0aa2cc | hash       |           84 |
-| 185.83.60.186            | ip         |           84 |
-| 185.81.68.90             | domain     |           77 |
-| badactor.net             | hash       |           76 |
+| malwaredrop.org          | domain     |           95 |
+| 2ddbdd712c056f34bd0aa2cc | domain     |           95 |
+| 193.42.157.198           | ip         |           92 |
+| 185.83.60.186            | domain     |           91 |
+| badactor.net             | hash       |           90 |
+| malicious.com            | domain     |           84 |
+| 185.82.113.99            | domain     |           78 |
+| 185.81.68.90             | ip         |           73 |
 
 ---
 
@@ -601,6 +602,7 @@ Elevated activity may indicate:
 ![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
