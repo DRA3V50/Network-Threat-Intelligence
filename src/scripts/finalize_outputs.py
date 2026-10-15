@@ -12,6 +12,5 @@ def finalize_outputs():
 
     print("[+] Outputs finalized")
 
-
 if __name__ == "__main__":
     finalize_outputs()
