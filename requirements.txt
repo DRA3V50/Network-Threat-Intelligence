@@ -9,3 +9,5 @@ matplotlib>=3.7.0
 
 # HTTP requests for OSINT fetching
 requests>=2.31.0
+
+scapy>=2.6.0
