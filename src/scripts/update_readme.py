@@ -1,8 +1,12 @@
+
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
+import ipaddress
+
 import pandas as pd
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import numpy as np
 
 ROOT = Path(".")
 README = ROOT / "README.md"
@@ -22,267 +26,392 @@ START = "<!-- AUTO-GENERATED-START -->"
 END = "<!-- AUTO-GENERATED-END -->"
 
 
-# -------------------------
-# Utility Styling
-# -------------------------
-def apply_dark_style(fig, ax):
-    fig.patch.set_facecolor("#0B1118")
-    ax.set_facecolor("#0B1118")
+def load_csv(path):
+    if not path.exists():
+        print(f"[!] Missing dataset: {path}")
+        return pd.DataFrame()
 
-    ax.tick_params(colors="#C9D1D9")
-    ax.yaxis.label.set_color("#C9D1D9")
-    ax.xaxis.label.set_color("#C9D1D9")
-
-    for spine in ax.spines.values():
-        spine.set_color("#1F2A36")
-
-    ax.yaxis.grid(True, color="#1F2A36", linewidth=0.6)
-    ax.set_axisbelow(True)
+    try:
+        return pd.read_csv(path)
+    except pd.errors.EmptyDataError:
+        return pd.DataFrame()
 
 
-def table(df, limit=8):
-    return df.head(limit).to_markdown(index=False)
-
-
-# -------------------------
-# Normalize Vulnerabilities
-# -------------------------
-def normalize_vulnerabilities(df):
-    df.columns = df.columns.str.lower()
-
-    if "risk_score" not in df.columns:
-        severity_map = {
-            "LOW": 25,
-            "MEDIUM": 50,
-            "HIGH": 75,
-            "CRITICAL": 100
-        }
-        df["risk_score"] = (
-            df.get("severity", "")
-            .astype(str)
-            .str.upper()
-            .map(severity_map)
-            .fillna(0)
+def clean_iocs(df):
+    if df.empty:
+        return pd.DataFrame(
+            columns=[
+                "ioc_value", "ioc_type", "confidence", "source",
+                "date_added", "url_status", "threat", "urlhaus_reference"
+            ]
         )
+
+    df = df.copy()
+    df.columns = df.columns.str.lower().str.strip()
+
+    for column in [
+        "ioc_value", "ioc_type", "confidence", "source",
+        "date_added", "url_status", "threat", "urlhaus_reference"
+    ]:
+        if column not in df.columns:
+            df[column] = pd.NA
+
+    df["ioc_value"] = df["ioc_value"].fillna("").astype(str).str.strip()
+    df = df[df["ioc_value"] != ""].copy()
+
+    # Do not invent confidence values. Blank, missing, and NaN
+    # confidence values remain explicitly unavailable.
+    confidence = pd.to_numeric(df["confidence"], errors="coerce")
+    df["confidence"] = confidence.map(
+        lambda value: f"{value:g}" if pd.notna(value) else "N/A"
+    )
+
+    for column in [
+        "ioc_type", "source", "date_added", "url_status",
+        "threat", "urlhaus_reference"
+    ]:
+        df[column] = df[column].fillna("").astype(str)
 
     return df
 
 
-# -------------------------
-# Network Behavior Scoring
-# -------------------------
-def calculate_network_behavior(pcaps_df, iocs_df):
-
-    pcaps_df.columns = pcaps_df.columns.str.lower()
-    iocs_df.columns = iocs_df.columns.str.lower()
-
-    if "source_ip" not in pcaps_df.columns:
-        return pcaps_df
-
-    pcaps_df = pcaps_df.copy()
-
-    # Base anomaly = normalized count
-    max_count = pcaps_df["count"].max()
-    pcaps_df["volume_score"] = (pcaps_df["count"] / max_count) * 70
-
-    # IOC correlation boost
-    if "ip" in iocs_df.columns:
-        ioc_ips = set(iocs_df["ip"].astype(str))
-        pcaps_df["ioc_match"] = pcaps_df["source_ip"].astype(str).isin(ioc_ips)
-        pcaps_df["correlation_boost"] = np.where(pcaps_df["ioc_match"], 30, 0)
-    else:
-        pcaps_df["correlation_boost"] = 0
-
-    pcaps_df["behavior_score"] = pcaps_df["volume_score"] + pcaps_df["correlation_boost"]
-
-    return pcaps_df.sort_values("behavior_score", ascending=False)
-
-
-# -------------------------
-# Composite Risk Model
-# -------------------------
-def generate_composite_chart(iocs_df, vulns_df, pcaps_df):
-
-    ioc_score = float(iocs_df["confidence"].mean()) if "confidence" in iocs_df.columns else 0
-    vuln_score = float(vulns_df["risk_score"].mean()) if "risk_score" in vulns_df.columns else 0
-    net_score = float(pcaps_df["behavior_score"].mean()) if "behavior_score" in pcaps_df.columns else 0
-
-    # Dynamic Weights
-    ioc_weighted = ioc_score * 0.60
-    vuln_weighted = vuln_score * 0.25
-    net_weighted = net_score * 0.15
-
-    values = [
-        round(ioc_weighted, 1),
-        round(vuln_weighted, 1),
-        round(net_weighted, 1)
-    ]
-
-    composite_score = round(sum(values), 1)
-
-    if composite_score < 30:
-        tier = "LOW"
-        color = "#2E8B57"
-    elif composite_score < 55:
-        tier = "ELEVATED"
-        color = "#C47A1F"
-    elif composite_score < 80:
-        tier = "HIGH"
-        color = "#B22222"
-    else:
-        tier = "CRITICAL"
-        color = "#FF2E2E"
-
-    fig, ax = plt.subplots(figsize=(10, 5))
-    apply_dark_style(fig, ax)
-
-    labels = ["Threat Intel", "Vulnerability Exposure", "Network Behavior"]
-
-    # Purple / Gold variant bars
-    colors = ["#6A0DAD", "#D4AF37", "#9370DB"]
-
-    bars = ax.bar(labels, values, width=0.45, color=colors)
-
-    for bar in bars:
-        height = bar.get_height()
-        ax.text(
-            bar.get_x() + bar.get_width() / 2,
-            height + 2,
-            f"{height:.1f}",
-            ha="center",
-            color="#FFFFFF",
-            fontweight="bold"
+def clean_vulnerabilities(df):
+    if df.empty:
+        return pd.DataFrame(
+            columns=["vulnerability", "severity", "severity_score", "risk_score"]
         )
 
-    fig.text(
-        0.5,
-        0.92,
-        f"Enterprise Threat Posture: {tier}  |  Composite Score: {composite_score}",
-        ha="center",
-        fontsize=13,
-        color=color,
-        fontweight="bold"
+    df = df.copy()
+    df.columns = df.columns.str.lower().str.strip()
+
+    if "vulnerability" not in df.columns:
+        if "cve" in df.columns:
+            df["vulnerability"] = df["cve"]
+        else:
+            df["vulnerability"] = "Unidentified finding"
+
+    if "severity" not in df.columns:
+        df["severity"] = "Unknown"
+
+    df["severity"] = df["severity"].fillna("Unknown").astype(str).str.title()
+
+    if "severity_score" not in df.columns:
+        severity_values = {
+            "Critical": 9,
+            "High": 7,
+            "Medium": 5,
+            "Low": 3,
+        }
+        df["severity_score"] = df["severity"].map(severity_values)
+
+    if "risk_score" not in df.columns:
+        risk_values = {
+            "Critical": 100,
+            "High": 75,
+            "Medium": 50,
+            "Low": 25,
+        }
+        df["risk_score"] = df["severity"].map(risk_values)
+
+    # Keep scores missing if the source did not provide them and
+    # severity alone cannot justify a derived score.
+    df["severity_score"] = pd.to_numeric(
+        df["severity_score"], errors="coerce"
+    )
+    df["risk_score"] = pd.to_numeric(df["risk_score"], errors="coerce")
+
+    return df
+
+
+def clean_network(df):
+    if df.empty:
+        return pd.DataFrame(
+            columns=["source_ip", "count", "tcp_packets", "udp_packets",
+                     "unique_destinations"]
+        )
+
+    df = df.copy()
+    df.columns = df.columns.str.lower().str.strip()
+
+    if "source_ip" not in df.columns or "count" not in df.columns:
+        print("[!] Network CSV lacks source_ip or count; not charting it.")
+        return pd.DataFrame(
+            columns=["source_ip", "count", "tcp_packets", "udp_packets",
+                     "unique_destinations"]
+        )
+
+    df["source_ip"] = df["source_ip"].fillna("").astype(str).str.strip()
+    df["count"] = pd.to_numeric(df["count"], errors="coerce")
+    df = df.dropna(subset=["count"])
+    df = df[df["source_ip"] != ""]
+    df = df[df["count"] >= 0]
+
+    return df.sort_values("count", ascending=False)
+
+
+def extract_ip_iocs(iocs_df):
+    """Extract only indicators explicitly represented as IP addresses."""
+    found = set()
+
+    for _, row in iocs_df.iterrows():
+        value = str(row.get("ioc_value", "")).strip()
+        kind = str(row.get("ioc_type", "")).strip().lower()
+
+        # The URLhaus feed provides URLs. Only use an indicator as an
+        # IP when its value itself is a valid IP address.
+        if kind not in {"ip", "ipv4", "ipv6"}:
+            continue
+
+        try:
+            found.add(str(ipaddress.ip_address(value)))
+        except ValueError:
+            continue
+
+    return found
+
+
+def calculate_network_behavior(network_df, iocs_df):
+    """Add observed volume and exact source-IP indicator match fields."""
+    df = network_df.copy()
+
+    if df.empty:
+        df["ioc_match"] = pd.Series(dtype=bool)
+        return df
+
+    ip_iocs = extract_ip_iocs(iocs_df)
+    df["ioc_match"] = df["source_ip"].isin(ip_iocs)
+
+    # Volume is a relative ranking, not an anomaly or maliciousness score.
+    maximum = df["count"].max()
+    df["relative_volume_pct"] = (
+        df["count"] / maximum * 100 if maximum > 0 else 0
     )
 
-    ax.set_ylabel("Weighted Risk Contribution")
-    ax.set_ylim(0, max(values) * 1.2 if max(values) > 0 else 10)
-
-    plt.tight_layout(rect=[0, 0, 1, 0.88])
-    plt.savefig(COMPOSITE_CHART, dpi=220, facecolor=fig.get_facecolor())
-    plt.close()
+    return df.sort_values("count", ascending=False)
 
 
-# -------------------------
-# Network Behavior Chart
-# -------------------------
-def generate_network_chart(pcaps_df):
+def apply_dark_style(fig, ax):
+    fig.patch.set_facecolor("#0B1118")
+    ax.set_facecolor("#0B1118")
+    ax.tick_params(colors="#C9D1D9")
 
-    top = pcaps_df.head(6)
+    ax.xaxis.label.set_color("#C9D1D9")
+    ax.yaxis.label.set_color("#C9D1D9")
+    ax.title.set_color("#C9D1D9")
+
+    for spine in ax.spines.values():
+        spine.set_color("#263342")
+
+    ax.yaxis.grid(True, color="#263342", linewidth=0.6)
+    ax.set_axisbelow(True)
+
+
+def table(df, limit=8):
+    if df.empty:
+        return "_No data available._"
+
+    safe = df.head(limit).copy()
+    safe = safe.fillna("N/A")
+    return safe.to_markdown(index=False)
+
+
+def generate_composite_chart(iocs_df, vulns_df, network_df):
+    # These are source-data counts, not a fabricated overall risk score.
+    values = [
+        len(iocs_df),
+        len(vulns_df),
+        len(network_df),
+    ]
+    labels = [
+        "Feed indicators",
+        "Vulnerability records",
+        "Observed source IPs",
+    ]
 
     fig, ax = plt.subplots(figsize=(10, 5))
     apply_dark_style(fig, ax)
 
-    bars = ax.bar(top["source_ip"], top["behavior_score"], width=0.45, color="#9B111E")
+    bars = ax.bar(
+        labels, values,
+        color=["#8B78C6", "#D4AF37", "#4C9FAD"],
+        width=0.55,
+    )
 
     for bar in bars:
         height = bar.get_height()
         ax.text(
             bar.get_x() + bar.get_width() / 2,
-            height + 2,
+            height + max(values + [1]) * 0.02,
             f"{int(height)}",
             ha="center",
             color="#FFFFFF",
-            fontweight="bold"
         )
 
-    ax.set_title("Network Behavioral Risk Index", color="#C9D1D9")
-    ax.set_ylabel("Behavior Risk Score")
+    ax.set_title("Security Data Coverage")
+    ax.set_ylabel("Records available")
+    ax.tick_params(axis="x", labelrotation=12)
+    ax.set_ylim(0, max(values + [1]) * 1.18)
 
-    plt.xticks(rotation=35)
-    plt.tight_layout()
-    plt.savefig(NETWORK_CHART, dpi=220, facecolor=fig.get_facecolor())
-    plt.close()
+    fig.tight_layout()
+    fig.savefig(COMPOSITE_CHART, dpi=180, facecolor=fig.get_facecolor())
+    plt.close(fig)
 
 
-# -------------------------
-# Vulnerability Distribution
-# -------------------------
+def generate_network_chart(network_df):
+    fig, ax = plt.subplots(figsize=(10, 5))
+    apply_dark_style(fig, ax)
+
+    if network_df.empty:
+        ax.text(
+            0.5, 0.5, "No valid network observations available",
+            ha="center", va="center", color="#C9D1D9",
+            transform=ax.transAxes,
+        )
+        ax.set_axis_off()
+    else:
+        top = network_df.head(10).copy()
+        labels = top["source_ip"].astype(str)
+        colors = [
+            "#D4AF37" if matched else "#4C9FAD"
+            for matched in top["ioc_match"]
+        ]
+
+        bars = ax.bar(labels, top["count"], color=colors, width=0.65)
+
+        for bar in bars:
+            ax.text(
+                bar.get_x() + bar.get_width() / 2,
+                bar.get_height(),
+                f"{int(bar.get_height())}",
+                ha="center", va="bottom", color="#FFFFFF", fontsize=8,
+            )
+
+        ax.set_title("Observed Packets by Source IP")
+        ax.set_ylabel("Packet count")
+        ax.set_xlabel("Source IP")
+        ax.tick_params(axis="x", labelrotation=35)
+
+        if top["ioc_match"].any():
+            ax.plot([], [], color="#D4AF37", label="Exact source-IP IOC match")
+            ax.legend(facecolor="#0B1118", labelcolor="#C9D1D9")
+
+    fig.tight_layout()
+    fig.savefig(NETWORK_CHART, dpi=180, facecolor=fig.get_facecolor())
+    plt.close(fig)
+
+
 def generate_vulnerability_chart(vulns_df):
-
-    severity_counts = vulns_df["risk_score"].value_counts()
-
     fig, ax = plt.subplots(figsize=(8, 5))
     apply_dark_style(fig, ax)
 
-    ax.bar(severity_counts.index.astype(str), severity_counts.values, color="#D4AF37")
+    if vulns_df.empty or "severity" not in vulns_df.columns:
+        ax.text(
+            0.5, 0.5, "No vulnerability records available",
+            ha="center", va="center", color="#C9D1D9",
+            transform=ax.transAxes,
+        )
+        ax.set_axis_off()
+    else:
+        counts = (
+            vulns_df["severity"]
+            .fillna("Unknown")
+            .astype(str)
+            .value_counts()
+        )
+        ax.bar(counts.index, counts.values, color="#D4AF37")
+        ax.set_title("Vulnerability Records by Reported Severity")
+        ax.set_ylabel("Record count")
+        ax.tick_params(axis="x", labelrotation=20)
 
-    ax.set_title("Vulnerability Severity Distribution", color="#C9D1D9")
-    ax.set_ylabel("Number of Findings")
-
-    plt.tight_layout()
-    plt.savefig(VULN_CHART, dpi=220, facecolor=fig.get_facecolor())
-    plt.close()
+    fig.tight_layout()
+    fig.savefig(VULN_CHART, dpi=180, facecolor=fig.get_facecolor())
+    plt.close(fig)
 
 
-# -------------------------
-# README Update
-# -------------------------
 def update_readme():
+    iocs_df = clean_iocs(load_csv(IOCS))
+    vulns_df = clean_vulnerabilities(load_csv(VULNS))
+    network_df = clean_network(load_csv(PCAPS))
 
-    iocs_df = pd.read_csv(IOCS).sort_values("confidence", ascending=False)
-    vulns_df = normalize_vulnerabilities(pd.read_csv(VULNS))
-    pcaps_df = pd.read_csv(PCAPS).sort_values("count", ascending=False)
+    network_df = calculate_network_behavior(network_df, iocs_df)
 
-    pcaps_df = calculate_network_behavior(pcaps_df, iocs_df)
-
-    generate_composite_chart(iocs_df, vulns_df, pcaps_df)
-    generate_network_chart(pcaps_df)
+    generate_composite_chart(iocs_df, vulns_df, network_df)
+    generate_network_chart(network_df)
     generate_vulnerability_chart(vulns_df)
 
-    block = f"""
-{START}
+    ioc_columns = [
+        column for column in [
+            "ioc_value", "ioc_type", "confidence", "source",
+            "date_added", "url_status", "threat", "urlhaus_reference"
+        ]
+        if column in iocs_df.columns
+    ]
 
-# Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** {datetime.utcnow().strftime('%Y-%m-%d %H:%M')}
+    network_columns = [
+        column for column in [
+            "source_ip", "count", "tcp_packets", "udp_packets",
+            "unique_destinations", "ioc_match"
+        ]
+        if column in network_df.columns
+    ]
+
+    updated = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+
+    block = f"""{START}
+
+## Enterprise Security Intelligence Dashboard
+**Last Updated (UTC):** {updated}
+
+> Feed indicators are not proof of compromise. Network matches below
+> are exact source-IP matches only. Packet volume alone does not establish
+> malicious behavior. Vulnerability records depend on the input dataset.
 
 ---
 
-## Threat Intelligence Overview
-{table(iocs_df)}
+## Threat Intelligence Feed Indicators
+**Source:** URLhaus and any other sources explicitly recorded in the feed.
+
+{table(iocs_df[ioc_columns])}
 
 ---
 
-## Vulnerability Exposure Analysis
+## Vulnerability Records
+**Note:** Verify whether the input is from an actual scanner or a sample dataset.
+
 {table(vulns_df)}
 
 ---
 
-## Enterprise Threat Posture
-![Composite Threat](build/charts/composite_threat.png)
+## Security Data Coverage
+![Security Data Coverage](build/charts/composite_threat.png)
 
 ---
 
-## Network Behavioral Risk Index
-![Network Behavior](build/charts/network_behavior.png)
+## Observed Network Traffic
+The chart reports packet counts from the network CSV. Gold bars indicate an
+exact match between a source IP and an indicator explicitly typed as an IP.
+
+![Observed Network Traffic](build/charts/network_behavior.png)
 
 ---
 
-## Vulnerability Severity Distribution
+## Vulnerability Records by Reported Severity
 ![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
 
 {END}
 """
 
-    text = README.read_text() if README.exists() else ""
+    text = README.read_text(encoding="utf-8") if README.exists() else ""
 
     if START in text and END in text:
-        text = text.split(START)[0] + block + text.split(END)[1]
+        before = text.split(START, 1)[0]
+        after = text.split(END, 1)[1]
+        text = before + block + after
     else:
-        text += "\n" + block
+        text = text.rstrip() + "\n\n" + block
 
-    README.write_text(text)
-
-    print("README fully updated with dynamic dashboards.")
+    README.write_text(text, encoding="utf-8")
+    print("README and dashboard charts updated.")
 
 
 if __name__ == "__main__":
