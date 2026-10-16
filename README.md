@@ -836,7 +836,7 @@ Elevated activity may indicate:
 <!-- AUTO-GENERATED-START -->
 
 ## Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** 2026-10-16 16:42 UTC
+**Last Updated (UTC):** 2026-10-16 21:55 UTC
 
 > Feed indicators are not proof of compromise. Network matches below
 > are exact source-IP matches only. Packet volume alone does not establish
@@ -847,16 +847,16 @@ Elevated activity may indicate:
 ## Threat Intelligence Feed Indicators
 **Source:** URLhaus and any other sources explicitly recorded in the feed.
 
-| ioc_value                         | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
-|:----------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://124.92.174.228:48261/i     | url        | N/A          | URLhaus  | 2026-10-16 16:32:09 | online       | malware_download | https://urlhaus.abuse.ch/url/3950965/ |
-| http://125.44.18.57:42027/i       | url        | N/A          | URLhaus  | 2026-10-16 16:32:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950964/ |
-| http://222.241.232.126:50704/i    | url        | N/A          | URLhaus  | 2026-10-16 16:25:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3950963/ |
-| http://103.87.194.109:43848/i     | url        | N/A          | URLhaus  | 2026-10-16 16:17:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950962/ |
-| http://103.172.186.194:56184/i    | url        | N/A          | URLhaus  | 2026-10-16 16:02:06 | online       | malware_download | https://urlhaus.abuse.ch/url/3950961/ |
-| http://171.104.126.3:51926/i      | url        | N/A          | URLhaus  | 2026-10-16 15:32:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3950960/ |
-| http://42.224.66.179:60764/i      | url        | N/A          | URLhaus  | 2026-10-16 15:32:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950959/ |
-| https://kst.omsules.life/DvnX.zip | url        | N/A          | URLhaus  | 2026-10-16 15:27:20 | offline      | malware_download | https://urlhaus.abuse.ch/url/3950958/ |
+| ioc_value                           | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:------------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://123.9.108.246:39954/i        | url        | N/A          | URLhaus  | 2026-10-16 21:48:10 | online       | malware_download | https://urlhaus.abuse.ch/url/3951064/ |
+| http://115.62.183.111:39237/bin.sh  | url        | N/A          | URLhaus  | 2026-10-16 21:47:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951063/ |
+| http://123.9.192.121:54558/i        | url        | N/A          | URLhaus  | 2026-10-16 21:47:12 | online       | malware_download | https://urlhaus.abuse.ch/url/3951062/ |
+| http://115.57.248.165:49715/i       | url        | N/A          | URLhaus  | 2026-10-16 21:31:22 | online       | malware_download | https://urlhaus.abuse.ch/url/3951061/ |
+| http://42.227.238.121:57409/i       | url        | N/A          | URLhaus  | 2026-10-16 21:31:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951059/ |
+| http://103.145.113.70:56024/i       | url        | N/A          | URLhaus  | 2026-10-16 21:31:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951060/ |
+| http://138.204.196.244:57205/bin.sh | url        | N/A          | URLhaus  | 2026-10-16 21:28:26 | online       | malware_download | https://urlhaus.abuse.ch/url/3951058/ |
+| http://115.62.183.111:39237/i       | url        | N/A          | URLhaus  | 2026-10-16 21:17:12 | online       | malware_download | https://urlhaus.abuse.ch/url/3951057/ |
 
 ---
 
@@ -890,6 +890,7 @@ exact match between a source IP and an indicator explicitly typed as an IP.
 ![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
