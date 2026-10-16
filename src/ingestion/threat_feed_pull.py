@@ -1,51 +1,28 @@
-
 import csv
-import ipaddress
-import json
+import io
 import logging
-import re
 from pathlib import Path
-from urllib.parse import urlparse
 
 import requests
 
 LOGGER = logging.getLogger(__name__)
 
-URLHAUS_FEED_URL = "https://urlhaus-api.abuse.ch/v1/urls/recent/"
+URLHAUS_CSV_URL = "https://urlhaus.abuse.ch/downloads/csv_recent/"
 
 CSV_COLUMNS = [
     "ioc_value",
     "ioc_type",
     "confidence",
     "source",
+    "date_added",
+    "url_status",
+    "threat",
+    "urlhaus_reference",
 ]
 
 
-def classify_indicator(value: str) -> str:
-    """Classify an indicator from its actual format, not at random."""
-    value = value.strip()
-
-    try:
-        ipaddress.ip_address(value)
-        return "ip"
-    except ValueError:
-        pass
-
-    if value.startswith(("http://", "https://")):
-        return "url"
-
-    if re.fullmatch(r"[a-fA-F0-9]{32}|[a-fA-F0-9]{40}|[a-fA-F0-9]{64}", value):
-        return "hash"
-
-    return "domain"
-
-
 def pull_osint_iocs(output_dir: Path, limit: int = 100):
-    """
-    Download recent malware URLs from URLhaus and export observed
-    indicators. Confidence is left blank because this feed response
-    is not a calibrated confidence score.
-    """
+    """Import recent URLhaus malware URL indicators from its CSV feed."""
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
     output_file = output_dir / "osint_iocs.csv"
@@ -53,65 +30,89 @@ def pull_osint_iocs(output_dir: Path, limit: int = 100):
     if limit < 1:
         raise ValueError("limit must be at least 1")
 
-    LOGGER.info("Fetching recent indicators from URLhaus")
+    LOGGER.info("Fetching recent URLhaus CSV feed")
 
     try:
         response = requests.get(
-            URLHAUS_FEED_URL,
+            URLHAUS_CSV_URL,
             timeout=(10, 30),
             headers={"User-Agent": "Network-Threat-Intelligence/1.0"},
         )
         response.raise_for_status()
-        payload = response.json()
-    except (requests.RequestException, json.JSONDecodeError) as exc:
+    except requests.RequestException as exc:
         raise RuntimeError(
-            "URLhaus ingestion failed. No replacement IOC dataset "
-            "was written; check network access and the feed status."
+            "Could not download the URLhaus CSV feed. "
+            "The previous IOC file has been left unchanged."
         ) from exc
 
-    if not isinstance(payload, dict):
-        raise RuntimeError("URLhaus returned an unexpected response format")
+    # URLhaus CSV exports use comment lines; the column header
+    # begins with '# id,...'. Remove comments without losing that header.
+    lines = response.text.splitlines()
+    header_index = None
 
-    urls = payload.get("urls", [])
-    if not isinstance(urls, list):
-        raise RuntimeError("URLhaus response did not contain a valid URL list")
+    for index, line in enumerate(lines):
+        candidate = line.lstrip()
+        if candidate.startswith("#"):
+            candidate = candidate[1:].strip()
+
+        if candidate.lower().startswith("id,dateadded,url,"):
+            header_index = index
+            lines[index] = candidate
+            break
+
+    if header_index is None:
+        raise RuntimeError(
+            "URLhaus response did not contain the expected CSV header. "
+            "The previous IOC file has been left unchanged."
+        )
+
+    csv_text = "\n".join(
+        line for line in lines[header_index:]
+        if line.strip() and not line.lstrip().startswith("#")
+    )
+
+    reader = csv.DictReader(io.StringIO(csv_text))
+    required = {"id", "dateadded", "url", "url_status", "threat"}
+
+    if not reader.fieldnames or not required.issubset(reader.fieldnames):
+        raise RuntimeError(
+            "URLhaus CSV columns were unexpected. "
+            f"Found: {reader.fieldnames}"
+        )
 
     rows = []
     seen = set()
 
-    for item in urls:
-        if not isinstance(item, dict):
-            continue
-
-        value = str(item.get("url", "")).strip()
+    for item in reader:
+        value = (item.get("url") or "").strip()
         if not value or value in seen:
             continue
 
-        parsed = urlparse(value)
-        if parsed.scheme not in {"http", "https"} or not parsed.hostname:
+        # Only accept HTTP(S) URLs from this URL-based feed.
+        if not value.lower().startswith(("http://", "https://")):
             continue
 
         seen.add(value)
-        rows.append(
-            {
-                "ioc_value": value,
-                "ioc_type": "url",
-                "confidence": "",
-                "source": "URLhaus",
-            }
-        )
+        rows.append({
+            "ioc_value": value,
+            "ioc_type": "url",
+            "confidence": "",
+            "source": "URLhaus",
+            "date_added": item.get("dateadded", ""),
+            "url_status": item.get("url_status", ""),
+            "threat": item.get("threat", ""),
+            "urlhaus_reference": item.get("urlhaus_link", ""),
+        })
 
         if len(rows) >= limit:
             break
 
     if not rows:
         raise RuntimeError(
-            "URLhaus returned no usable indicators. Existing output "
-            "was left unchanged."
+            "The URLhaus CSV feed returned no usable URLs. "
+            "The previous IOC file has been left unchanged."
         )
 
-    # Write to a temporary file first so a failed write does not
-    # partially overwrite the previous dataset.
     temporary_file = output_file.with_suffix(".csv.tmp")
 
     try:
@@ -127,11 +128,8 @@ def pull_osint_iocs(output_dir: Path, limit: int = 100):
         if temporary_file.exists():
             temporary_file.unlink()
 
-    LOGGER.info(
-        "Saved %s URLhaus indicators to %s",
-        len(rows),
-        output_file,
-    )
+    LOGGER.info("Imported %d URLhaus indicators", len(rows))
+    LOGGER.info("Output: %s", output_file)
 
     return {
         "source": "URLhaus",
