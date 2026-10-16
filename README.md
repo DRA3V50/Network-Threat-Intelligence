@@ -835,26 +835,34 @@ Elevated activity may indicate:
 
 <!-- AUTO-GENERATED-START -->
 
-# Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** 2026-10-16 16:28
+## Enterprise Security Intelligence Dashboard
+**Last Updated (UTC):** 2026-10-16 16:42 UTC
+
+> Feed indicators are not proof of compromise. Network matches below
+> are exact source-IP matches only. Packet volume alone does not establish
+> malicious behavior. Vulnerability records depend on the input dataset.
 
 ---
 
-## Threat Intelligence Overview
-| ioc_value                                                                                                                                                                                                                               | ioc_type   |   confidence | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
-|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|-------------:|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://222.241.232.126:50704/i                                                                                                                                                                                                          | url        |          nan | URLhaus  | 2026-10-16 16:25:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3950963/ |
-| http://103.87.194.109:43848/i                                                                                                                                                                                                           | url        |          nan | URLhaus  | 2026-10-16 16:17:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950962/ |
-| http://103.172.186.194:56184/i                                                                                                                                                                                                          | url        |          nan | URLhaus  | 2026-10-16 16:02:06 | online       | malware_download | https://urlhaus.abuse.ch/url/3950961/ |
-| http://171.104.126.3:51926/i                                                                                                                                                                                                            | url        |          nan | URLhaus  | 2026-10-16 15:32:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3950960/ |
-| http://42.224.66.179:60764/i                                                                                                                                                                                                            | url        |          nan | URLhaus  | 2026-10-16 15:32:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950959/ |
-| https://kst.omsules.life/DvnX.zip                                                                                                                                                                                                       | url        |          nan | URLhaus  | 2026-10-16 15:27:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3950958/ |
-| https://cdn.discordapp.com/attachments/1560033976452784208/1560656548278177812/bundle.zip?ex=6ad3822c&is=6ad230ac&hm=53dfa7848e3a1fa67f3690161a896479b127d0186f6d8535dd8756065f9dddfb&                                                  | url        |          nan | URLhaus  | 2026-10-16 15:27:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3950957/ |
-| https://download2285.mediafire.com/60uankbt9fbgdacCZEFgAL6YykiqvvqcZM4ew4SBaQm_7yp4fTehOjy7mcM5Y7QtjUUZ4wHIi4ja6ebpmqihU5bJnBAeOueI-UEz3AJgoy32nGHN4t5oA7pmmQwYQExcsAXqGIWVG4HIVgZUMf8QN5_JJJrWXp2DN3IUVMo-ga8/lab6d0dpgben23e/Xeno.zip | url        |          nan | URLhaus  | 2026-10-16 15:27:16 | online       | malware_download | https://urlhaus.abuse.ch/url/3950955/ |
+## Threat Intelligence Feed Indicators
+**Source:** URLhaus and any other sources explicitly recorded in the feed.
+
+| ioc_value                         | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:----------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://124.92.174.228:48261/i     | url        | N/A          | URLhaus  | 2026-10-16 16:32:09 | online       | malware_download | https://urlhaus.abuse.ch/url/3950965/ |
+| http://125.44.18.57:42027/i       | url        | N/A          | URLhaus  | 2026-10-16 16:32:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950964/ |
+| http://222.241.232.126:50704/i    | url        | N/A          | URLhaus  | 2026-10-16 16:25:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3950963/ |
+| http://103.87.194.109:43848/i     | url        | N/A          | URLhaus  | 2026-10-16 16:17:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950962/ |
+| http://103.172.186.194:56184/i    | url        | N/A          | URLhaus  | 2026-10-16 16:02:06 | online       | malware_download | https://urlhaus.abuse.ch/url/3950961/ |
+| http://171.104.126.3:51926/i      | url        | N/A          | URLhaus  | 2026-10-16 15:32:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3950960/ |
+| http://42.224.66.179:60764/i      | url        | N/A          | URLhaus  | 2026-10-16 15:32:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950959/ |
+| https://kst.omsules.life/DvnX.zip | url        | N/A          | URLhaus  | 2026-10-16 15:27:20 | offline      | malware_download | https://urlhaus.abuse.ch/url/3950958/ |
 
 ---
 
-## Vulnerability Exposure Analysis
+## Vulnerability Records
+**Note:** Verify whether the input is from an actual scanner or a sample dataset.
+
 | vulnerability   | severity   |   severity_score |   risk_score |
 |:----------------|:-----------|-----------------:|-------------:|
 | CVE-2024-3011   | Critical   |                9 |          100 |
@@ -865,20 +873,24 @@ Elevated activity may indicate:
 
 ---
 
-## Enterprise Threat Posture
-![Composite Threat](build/charts/composite_threat.png)
+## Security Data Coverage
+![Security Data Coverage](build/charts/composite_threat.png)
 
 ---
 
-## Network Behavioral Risk Index
-![Network Behavior](build/charts/network_behavior.png)
+## Observed Network Traffic
+The chart reports packet counts from the network CSV. Gold bars indicate an
+exact match between a source IP and an indicator explicitly typed as an IP.
+
+![Observed Network Traffic](build/charts/network_behavior.png)
 
 ---
 
-## Vulnerability Severity Distribution
+## Vulnerability Records by Reported Severity
 ![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
