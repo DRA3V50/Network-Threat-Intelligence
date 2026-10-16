@@ -1,9 +1,101 @@
-ioc_value,ioc_type,confidence
-185.81.68.90,domain,89
-185.82.113.99,domain,86
-malicious.com,domain,87
-badactor.net,domain,71
-2ddbdd712c056f34bd0aa2cc,domain,71
-193.42.157.198,ip,91
-malwaredrop.org,ip,79
-185.83.60.186,hash,91
+ioc_value,ioc_type,confidence,source,date_added,url_status,threat,urlhaus_reference
+http://222.241.232.126:50704/i,url,,URLhaus,2026-10-16 16:25:20,online,malware_download,https://urlhaus.abuse.ch/url/3950963/
+http://103.87.194.109:43848/i,url,,URLhaus,2026-10-16 16:17:07,online,malware_download,https://urlhaus.abuse.ch/url/3950962/
+http://103.172.186.194:56184/i,url,,URLhaus,2026-10-16 16:02:06,online,malware_download,https://urlhaus.abuse.ch/url/3950961/
+http://171.104.126.3:51926/i,url,,URLhaus,2026-10-16 15:32:08,online,malware_download,https://urlhaus.abuse.ch/url/3950960/
+http://42.224.66.179:60764/i,url,,URLhaus,2026-10-16 15:32:07,online,malware_download,https://urlhaus.abuse.ch/url/3950959/
+https://kst.omsules.life/DvnX.zip,url,,URLhaus,2026-10-16 15:27:20,online,malware_download,https://urlhaus.abuse.ch/url/3950958/
+https://cdn.discordapp.com/attachments/1560033976452784208/1560656548278177812/bundle.zip?ex=6ad3822c&is=6ad230ac&hm=53dfa7848e3a1fa67f3690161a896479b127d0186f6d8535dd8756065f9dddfb&,url,,URLhaus,2026-10-16 15:27:19,online,malware_download,https://urlhaus.abuse.ch/url/3950957/
+https://download2285.mediafire.com/60uankbt9fbgdacCZEFgAL6YykiqvvqcZM4ew4SBaQm_7yp4fTehOjy7mcM5Y7QtjUUZ4wHIi4ja6ebpmqihU5bJnBAeOueI-UEz3AJgoy32nGHN4t5oA7pmmQwYQExcsAXqGIWVG4HIVgZUMf8QN5_JJJrWXp2DN3IUVMo-ga8/lab6d0dpgben23e/Xeno.zip,url,,URLhaus,2026-10-16 15:27:16,online,malware_download,https://urlhaus.abuse.ch/url/3950955/
+https://cdn.discordapp.com/attachments/1559625975262617600/1560662897582153798/bundle_1.zip?ex=6ad38816&is=6ad23696&hm=8b766e9e7dcbf6c140d7c942abfaddb52356c0668b1b4610d20c665ac47443ae&,url,,URLhaus,2026-10-16 15:27:16,online,malware_download,https://urlhaus.abuse.ch/url/3950956/
+http://163.142.93.136:55570/bin.sh,url,,URLhaus,2026-10-16 15:26:32,offline,malware_download,https://urlhaus.abuse.ch/url/3950953/
+https://download2337.mediafire.com/ebtnfxnpb8jgtgRI0XvNnpnd-cFL9gNhLZWMh9JzanGhaxWnXmgFawTVKfNtuWfA_C6a0iPbxCXAkf9nH25orm2J138Qmqs7j2DqxCPnJbX2ZP1rf1f628OBFYf47G1Gjhq_3jOVmtCxtKgE02Eod1ho4OUyOsLKDFG5r2Lkx0g/ji9z4ydmt3te4e1/KiddonsM%D0%BEdMenu.zip,url,,URLhaus,2026-10-16 15:26:32,online,malware_download,https://urlhaus.abuse.ch/url/3950954/
+https://cdn.discordapp.com/attachments/1560335003827830834/1560638070355918919/bundle.zip?ex=6ad370f7&is=6ad21f77&hm=066736990e6ab8ce348db0cd69cc3fe19daa6208c4f0d140d88e4cc0b075ef11&,url,,URLhaus,2026-10-16 15:26:19,online,malware_download,https://urlhaus.abuse.ch/url/3950952/
+https://exec-roblox.info/uploads/B%D0%BE%D0%BEts%D0%B5%D1%85%D0%B5%D1%8164.zip,url,,URLhaus,2026-10-16 15:26:18,online,malware_download,https://urlhaus.abuse.ch/url/3950951/
+https://epstexsecutor.com/uploads/download.zip,url,,URLhaus,2026-10-16 15:26:17,online,malware_download,https://urlhaus.abuse.ch/url/3950950/
+https://dreambot.info/DreamBot.jar,url,,URLhaus,2026-10-16 15:26:11,online,malware_download,https://urlhaus.abuse.ch/url/3950948/
+http://167.148.201.191/80959,url,,URLhaus,2026-10-16 15:26:11,online,malware_download,https://urlhaus.abuse.ch/url/3950949/
+http://42.52.203.102:35206/i,url,,URLhaus,2026-10-16 15:17:07,online,malware_download,https://urlhaus.abuse.ch/url/3950946/
+http://42.56.135.154:45244/i,url,,URLhaus,2026-10-16 15:17:07,online,malware_download,https://urlhaus.abuse.ch/url/3950947/
+http://42.52.203.102:35206/bin.sh,url,,URLhaus,2026-10-16 15:17:06,online,malware_download,https://urlhaus.abuse.ch/url/3950945/
+http://163.142.93.136:55570/i,url,,URLhaus,2026-10-16 14:50:31,offline,malware_download,https://urlhaus.abuse.ch/url/3950944/
+http://182.119.12.51:40031/i,url,,URLhaus,2026-10-16 14:47:05,online,malware_download,https://urlhaus.abuse.ch/url/3950943/
+http://42.55.12.122:57818/bin.sh,url,,URLhaus,2026-10-16 14:32:11,online,malware_download,https://urlhaus.abuse.ch/url/3950941/
+http://42.238.71.29:57701/i,url,,URLhaus,2026-10-16 14:32:11,online,malware_download,https://urlhaus.abuse.ch/url/3950942/
+http://45.170.224.217:54091/i,url,,URLhaus,2026-10-16 14:27:17,online,malware_download,https://urlhaus.abuse.ch/url/3950940/
+http://216.126.86.205:47333/i,url,,URLhaus,2026-10-16 14:17:18,online,malware_download,https://urlhaus.abuse.ch/url/3950939/
+http://47.236.161.8:8281/linux,url,,URLhaus,2026-10-16 14:09:24,online,malware_download,https://urlhaus.abuse.ch/url/3950938/
+https://filebin.net/archive/6vak0cg8n6khu9xd/zip,url,,URLhaus,2026-10-16 14:01:06,offline,malware_download,https://urlhaus.abuse.ch/url/3950937/
+http://45.170.224.217:54091/bin.sh,url,,URLhaus,2026-10-16 13:59:18,online,malware_download,https://urlhaus.abuse.ch/url/3950936/
+http://219.155.202.252:42983/i,url,,URLhaus,2026-10-16 13:47:06,online,malware_download,https://urlhaus.abuse.ch/url/3950935/
+http://103.19.49.134:37431/bin.sh,url,,URLhaus,2026-10-16 13:02:07,online,malware_download,https://urlhaus.abuse.ch/url/3950934/
+http://42.235.91.212:50078/bin.sh,url,,URLhaus,2026-10-16 12:47:11,online,malware_download,https://urlhaus.abuse.ch/url/3950933/
+http://42.237.44.123:57470/i,url,,URLhaus,2026-10-16 12:47:07,online,malware_download,https://urlhaus.abuse.ch/url/3950932/
+http://60.23.179.155:39285/i,url,,URLhaus,2026-10-16 12:32:08,online,malware_download,https://urlhaus.abuse.ch/url/3950930/
+http://60.214.241.229:46912/i,url,,URLhaus,2026-10-16 12:32:08,online,malware_download,https://urlhaus.abuse.ch/url/3950931/
+http://123.8.57.120:59734/i,url,,URLhaus,2026-10-16 12:21:13,online,malware_download,https://urlhaus.abuse.ch/url/3950929/
+http://59.97.250.175:52934/i,url,,URLhaus,2026-10-16 12:18:08,online,malware_download,https://urlhaus.abuse.ch/url/3950928/
+http://59.96.142.200:50954/i,url,,URLhaus,2026-10-16 12:17:08,online,malware_download,https://urlhaus.abuse.ch/url/3950927/
+http://175.146.210.83:59201/i,url,,URLhaus,2026-10-16 12:12:18,online,malware_download,https://urlhaus.abuse.ch/url/3950926/
+http://115.62.184.49:34880/bin.sh,url,,URLhaus,2026-10-16 12:04:32,offline,malware_download,https://urlhaus.abuse.ch/url/3950925/
+http://79.40.9.54:46856/i,url,,URLhaus,2026-10-16 12:02:38,online,malware_download,https://urlhaus.abuse.ch/url/3950924/
+http://182.116.15.211:52271/bin.sh,url,,URLhaus,2026-10-16 12:02:08,online,malware_download,https://urlhaus.abuse.ch/url/3950923/
+http://82.114.178.6:58035/bin.sh,url,,URLhaus,2026-10-16 12:01:16,online,malware_download,https://urlhaus.abuse.ch/url/3950922/
+https://cdn.discordapp.com/attachments/1519428468599951424/1560609388643749898/bundle_2.zip?ex=6ad35640&is=6ad204c0&hm=cb9fbf17c2878b6412f8eefc3829665eefecdf4b00da43aea25530480fc6c64e&,url,,URLhaus,2026-10-16 11:50:33,online,malware_download,https://urlhaus.abuse.ch/url/3950921/
+http://117.40.68.183:34273/bin.sh,url,,URLhaus,2026-10-16 11:50:30,online,malware_download,https://urlhaus.abuse.ch/url/3950920/
+https://vtivision-fi.com/suzxwgr/afwugem/aimxfrz/FPsecured_stub.ps1,url,,URLhaus,2026-10-16 11:50:07,offline,malware_download,https://urlhaus.abuse.ch/url/3950919/
+http://83.228.109.209:33648/i,url,,URLhaus,2026-10-16 11:47:07,online,malware_download,https://urlhaus.abuse.ch/url/3950917/
+http://178.141.18.236:33626/i,url,,URLhaus,2026-10-16 11:47:07,online,malware_download,https://urlhaus.abuse.ch/url/3950918/
+http://58.208.136.102:3588/i,url,,URLhaus,2026-10-16 11:27:19,online,malware_download,https://urlhaus.abuse.ch/url/3950916/
+http://175.173.80.97:50719/i,url,,URLhaus,2026-10-16 11:17:30,online,malware_download,https://urlhaus.abuse.ch/url/3950915/
+http://105.225.64.106:51643/bin.sh,url,,URLhaus,2026-10-16 11:17:06,offline,malware_download,https://urlhaus.abuse.ch/url/3950914/
+http://103.19.49.134:37431/i,url,,URLhaus,2026-10-16 11:03:07,online,malware_download,https://urlhaus.abuse.ch/url/3950913/
+http://180.149.219.213:38645/i,url,,URLhaus,2026-10-16 11:02:07,online,malware_download,https://urlhaus.abuse.ch/url/3950912/
+https://cdn.discordapp.com/attachments/1547710119960252437/1560338083763986483/bundle.zip?ex=6ad25994&is=6ad10814&hm=f4a36d7a4f14fb8800499fa9fffeb8b082cf2127db775c601dec42b49a573474&,url,,URLhaus,2026-10-16 10:50:52,online,malware_download,https://urlhaus.abuse.ch/url/3950911/
+https://cdn.discordapp.com/attachments/1559223274288713738/1560457391433060432/bundle.zip?ex=6ad2c8b2&is=6ad17732&hm=8ff43d5336ebb70a80c7f9de77aa39606c42d7955178679b375d3b4fca33ad06&,url,,URLhaus,2026-10-16 10:50:40,online,malware_download,https://urlhaus.abuse.ch/url/3950910/
+https://cdn.discordapp.com/attachments/1558584819267412038/1560294290767478965/bundle.zip?ex=6ad230cb&is=6ad0df4b&hm=1bb32a99846de97b638781c36dafa178727d543eeb9f1d5185b834464f480fd4&,url,,URLhaus,2026-10-16 10:50:26,online,malware_download,https://urlhaus.abuse.ch/url/3950909/
+https://cdn.discordapp.com/attachments/1557740644179517531/1560598231719743639/bundle.zip?ex=6ad34bdc&is=6ad1fa5c&hm=ba7473688cdaf3172f3046c5a553fdfdf74a4c0e8ad527f9d95f1a2d0fbbad87&,url,,URLhaus,2026-10-16 10:50:25,online,malware_download,https://urlhaus.abuse.ch/url/3950908/
+http://37.34.181.111:53143/bin.sh,url,,URLhaus,2026-10-16 10:50:09,online,malware_download,https://urlhaus.abuse.ch/url/3950905/
+http://220.191.125.250:48161/bin.sh,url,,URLhaus,2026-10-16 10:50:09,online,malware_download,https://urlhaus.abuse.ch/url/3950906/
+http://23.160.56.223/new.sh,url,,URLhaus,2026-10-16 10:50:09,online,malware_download,https://urlhaus.abuse.ch/url/3950907/
+https://tribot.co.uk/Mina.jar,url,,URLhaus,2026-10-16 10:50:08,online,malware_download,https://urlhaus.abuse.ch/url/3950904/
+https://cdn.discordapp.com/attachments/1559625975262617600/1559629592422125628/bundle.zip?ex=6acfc5bf&is=6ace743f&hm=3de5df75df58da3c7fd212f355d7a4b8ab4ad7db064e94d6598c9c4d7a4f395c&,url,,URLhaus,2026-10-16 10:50:07,offline,malware_download,https://urlhaus.abuse.ch/url/3950902/
+https://cdn.discordapp.com/attachments/1560044170599731202/1560044268515491890/bundle.zip?ex=6ad147f1&is=6acff671&hm=dceaa64eba1ccfcbd97e3e682461449d930a26201aa03260eadb5a8a056ef723&,url,,URLhaus,2026-10-16 10:50:07,offline,malware_download,https://urlhaus.abuse.ch/url/3950903/
+https://cdn.discordapp.com/attachments/1558076945571512441/1560112093611434094/bundle.zip?ex=6ad1871c&is=6ad0359c&hm=926575998512a186d00f9c706381a93fe81a4480f66aeecd6b3e98d7f10b9221&,url,,URLhaus,2026-10-16 10:50:06,offline,malware_download,https://urlhaus.abuse.ch/url/3950901/
+http://62.60.226.140/files/8614381788/Ju5y7TH.exe,url,,URLhaus,2026-10-16 10:49:07,offline,malware_download,https://urlhaus.abuse.ch/url/3950900/
+http://42.238.139.12:50347/bin.sh,url,,URLhaus,2026-10-16 10:48:08,online,malware_download,https://urlhaus.abuse.ch/url/3950899/
+http://42.237.44.123:57470/bin.sh,url,,URLhaus,2026-10-16 10:47:07,online,malware_download,https://urlhaus.abuse.ch/url/3950898/
+http://41.248.22.74:58977/i,url,,URLhaus,2026-10-16 10:32:24,offline,malware_download,https://urlhaus.abuse.ch/url/3950897/
+http://103.126.201.130:59221/i,url,,URLhaus,2026-10-16 10:17:06,online,malware_download,https://urlhaus.abuse.ch/url/3950896/
+http://222.141.74.123:44870/i,url,,URLhaus,2026-10-16 10:02:08,online,malware_download,https://urlhaus.abuse.ch/url/3950894/
+http://221.14.17.75:51621/i,url,,URLhaus,2026-10-16 10:02:08,online,malware_download,https://urlhaus.abuse.ch/url/3950895/
+http://222.142.221.213:36728/bin.sh,url,,URLhaus,2026-10-16 10:02:07,online,malware_download,https://urlhaus.abuse.ch/url/3950891/
+http://222.127.60.98:59083/i,url,,URLhaus,2026-10-16 10:02:07,online,malware_download,https://urlhaus.abuse.ch/url/3950892/
+http://105.184.76.124:56995/i,url,,URLhaus,2026-10-16 10:02:07,online,malware_download,https://urlhaus.abuse.ch/url/3950893/
+http://218.61.29.103:58879/i,url,,URLhaus,2026-10-16 09:47:06,online,malware_download,https://urlhaus.abuse.ch/url/3950889/
+http://115.61.115.242:58374/bin.sh,url,,URLhaus,2026-10-16 09:47:06,online,malware_download,https://urlhaus.abuse.ch/url/3950890/
+http://182.117.119.237:60350/bin.sh,url,,URLhaus,2026-10-16 09:33:07,online,malware_download,https://urlhaus.abuse.ch/url/3950888/
+http://218.61.29.103:58879/bin.sh,url,,URLhaus,2026-10-16 09:32:07,online,malware_download,https://urlhaus.abuse.ch/url/3950887/
+http://182.127.111.173:40844/bin.sh,url,,URLhaus,2026-10-16 09:32:06,online,malware_download,https://urlhaus.abuse.ch/url/3950886/
+http://105.225.25.212:47629/bin.sh,url,,URLhaus,2026-10-16 09:17:07,offline,malware_download,https://urlhaus.abuse.ch/url/3950885/
+http://219.155.202.252:42983/bin.sh,url,,URLhaus,2026-10-16 09:02:06,online,malware_download,https://urlhaus.abuse.ch/url/3950884/
+https://haven-post.com/f/zh2s2xptaamrnzpdyiq0ng/vj1ury4s,url,,URLhaus,2026-10-16 08:49:18,online,malware_download,https://urlhaus.abuse.ch/url/3950883/
+https://haven-post.com/curl/3evg00amsb/jx4r0tn568o5n8sm58.json,url,,URLhaus,2026-10-16 08:49:13,offline,malware_download,https://urlhaus.abuse.ch/url/3950882/
+http://105.225.64.106:51643/i,url,,URLhaus,2026-10-16 08:47:13,offline,malware_download,https://urlhaus.abuse.ch/url/3950881/
+http://45.135.193.209/arm5,url,,URLhaus,2026-10-16 08:32:24,offline,malware_download,https://urlhaus.abuse.ch/url/3950877/
+http://45.135.193.209/arm7,url,,URLhaus,2026-10-16 08:32:24,offline,malware_download,https://urlhaus.abuse.ch/url/3950878/
+http://45.135.193.209/i486,url,,URLhaus,2026-10-16 08:32:24,offline,malware_download,https://urlhaus.abuse.ch/url/3950879/
+http://45.135.193.209/i586,url,,URLhaus,2026-10-16 08:32:24,offline,malware_download,https://urlhaus.abuse.ch/url/3950880/
+http://45.135.193.209/x86,url,,URLhaus,2026-10-16 08:32:20,offline,malware_download,https://urlhaus.abuse.ch/url/3950876/
+http://105.184.168.190:52387/i,url,,URLhaus,2026-10-16 08:17:09,online,malware_download,https://urlhaus.abuse.ch/url/3950875/
+http://42.238.139.238:54491/bin.sh,url,,URLhaus,2026-10-16 08:02:07,online,malware_download,https://urlhaus.abuse.ch/url/3950873/
+http://42.239.231.145:50944/i,url,,URLhaus,2026-10-16 08:02:07,online,malware_download,https://urlhaus.abuse.ch/url/3950874/
+http://42.227.203.38:54878/bin.sh,url,,URLhaus,2026-10-16 07:58:18,online,malware_download,https://urlhaus.abuse.ch/url/3950872/
+http://119.184.8.229:39267/i,url,,URLhaus,2026-10-16 07:53:35,offline,malware_download,https://urlhaus.abuse.ch/url/3950871/
+http://105.224.29.86:35259/i,url,,URLhaus,2026-10-16 07:47:09,offline,malware_download,https://urlhaus.abuse.ch/url/3950868/
+http://125.41.2.138:58809/bin.sh,url,,URLhaus,2026-10-16 07:47:09,offline,malware_download,https://urlhaus.abuse.ch/url/3950869/
+http://42.224.10.16:32822/i,url,,URLhaus,2026-10-16 07:47:09,online,malware_download,https://urlhaus.abuse.ch/url/3950870/
+http://115.51.92.255:49190/i,url,,URLhaus,2026-10-16 07:47:08,online,malware_download,https://urlhaus.abuse.ch/url/3950867/
+http://105.184.120.172:43511/i,url,,URLhaus,2026-10-16 07:32:13,online,malware_download,https://urlhaus.abuse.ch/url/3950866/
+http://138.204.196.244:57205/i,url,,URLhaus,2026-10-16 07:32:12,online,malware_download,https://urlhaus.abuse.ch/url/3950865/
+http://42.234.167.165:42616/bin.sh,url,,URLhaus,2026-10-16 07:27:41,online,malware_download,https://urlhaus.abuse.ch/url/3950864/

@@ -832,24 +832,25 @@ Elevated activity may indicate:
 
 
 
+
 <!-- AUTO-GENERATED-START -->
 
 # Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** 2026-10-16 15:13
+**Last Updated (UTC):** 2026-10-16 16:28
 
 ---
 
 ## Threat Intelligence Overview
-| ioc_value                | ioc_type   |   confidence |
-|:-------------------------|:-----------|-------------:|
-| 185.83.60.186            | hash       |           91 |
-| 193.42.157.198           | ip         |           91 |
-| 185.81.68.90             | domain     |           89 |
-| malicious.com            | domain     |           87 |
-| 185.82.113.99            | domain     |           86 |
-| malwaredrop.org          | ip         |           79 |
-| badactor.net             | domain     |           71 |
-| 2ddbdd712c056f34bd0aa2cc | domain     |           71 |
+| ioc_value                                                                                                                                                                                                                               | ioc_type   |   confidence | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|-------------:|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://222.241.232.126:50704/i                                                                                                                                                                                                          | url        |          nan | URLhaus  | 2026-10-16 16:25:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3950963/ |
+| http://103.87.194.109:43848/i                                                                                                                                                                                                           | url        |          nan | URLhaus  | 2026-10-16 16:17:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950962/ |
+| http://103.172.186.194:56184/i                                                                                                                                                                                                          | url        |          nan | URLhaus  | 2026-10-16 16:02:06 | online       | malware_download | https://urlhaus.abuse.ch/url/3950961/ |
+| http://171.104.126.3:51926/i                                                                                                                                                                                                            | url        |          nan | URLhaus  | 2026-10-16 15:32:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3950960/ |
+| http://42.224.66.179:60764/i                                                                                                                                                                                                            | url        |          nan | URLhaus  | 2026-10-16 15:32:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3950959/ |
+| https://kst.omsules.life/DvnX.zip                                                                                                                                                                                                       | url        |          nan | URLhaus  | 2026-10-16 15:27:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3950958/ |
+| https://cdn.discordapp.com/attachments/1560033976452784208/1560656548278177812/bundle.zip?ex=6ad3822c&is=6ad230ac&hm=53dfa7848e3a1fa67f3690161a896479b127d0186f6d8535dd8756065f9dddfb&                                                  | url        |          nan | URLhaus  | 2026-10-16 15:27:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3950957/ |
+| https://download2285.mediafire.com/60uankbt9fbgdacCZEFgAL6YykiqvvqcZM4ew4SBaQm_7yp4fTehOjy7mcM5Y7QtjUUZ4wHIi4ja6ebpmqihU5bJnBAeOueI-UEz3AJgoy32nGHN4t5oA7pmmQwYQExcsAXqGIWVG4HIVgZUMf8QN5_JJJrWXp2DN3IUVMo-ga8/lab6d0dpgben23e/Xeno.zip | url        |          nan | URLhaus  | 2026-10-16 15:27:16 | online       | malware_download | https://urlhaus.abuse.ch/url/3950955/ |
 
 ---
 
@@ -878,6 +879,7 @@ Elevated activity may indicate:
 ![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
