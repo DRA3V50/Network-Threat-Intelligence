@@ -836,7 +836,7 @@ Elevated activity may indicate:
 <!-- AUTO-GENERATED-START -->
 
 ## Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** 2026-10-16 21:55 UTC
+**Last Updated (UTC):** 2026-10-17 07:32 UTC
 
 > Feed indicators are not proof of compromise. Network matches below
 > are exact source-IP matches only. Packet volume alone does not establish
@@ -847,16 +847,16 @@ Elevated activity may indicate:
 ## Threat Intelligence Feed Indicators
 **Source:** URLhaus and any other sources explicitly recorded in the feed.
 
-| ioc_value                           | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
-|:------------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://123.9.108.246:39954/i        | url        | N/A          | URLhaus  | 2026-10-16 21:48:10 | online       | malware_download | https://urlhaus.abuse.ch/url/3951064/ |
-| http://115.62.183.111:39237/bin.sh  | url        | N/A          | URLhaus  | 2026-10-16 21:47:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951063/ |
-| http://123.9.192.121:54558/i        | url        | N/A          | URLhaus  | 2026-10-16 21:47:12 | online       | malware_download | https://urlhaus.abuse.ch/url/3951062/ |
-| http://115.57.248.165:49715/i       | url        | N/A          | URLhaus  | 2026-10-16 21:31:22 | online       | malware_download | https://urlhaus.abuse.ch/url/3951061/ |
-| http://42.227.238.121:57409/i       | url        | N/A          | URLhaus  | 2026-10-16 21:31:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951059/ |
-| http://103.145.113.70:56024/i       | url        | N/A          | URLhaus  | 2026-10-16 21:31:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951060/ |
-| http://138.204.196.244:57205/bin.sh | url        | N/A          | URLhaus  | 2026-10-16 21:28:26 | online       | malware_download | https://urlhaus.abuse.ch/url/3951058/ |
-| http://115.62.183.111:39237/i       | url        | N/A          | URLhaus  | 2026-10-16 21:17:12 | online       | malware_download | https://urlhaus.abuse.ch/url/3951057/ |
+| ioc_value                       | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:--------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://31.56.52.6/xmrig-x64     | url        | N/A          | URLhaus  | 2026-10-17 07:25:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951207/ |
+| http://31.56.52.6/xmrig-aarch64 | url        | N/A          | URLhaus  | 2026-10-17 07:25:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951208/ |
+| http://31.56.52.6/xmrig-arm     | url        | N/A          | URLhaus  | 2026-10-17 07:25:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951209/ |
+| http://31.56.52.6/xmrig-x86     | url        | N/A          | URLhaus  | 2026-10-17 07:25:21 | online       | malware_download | https://urlhaus.abuse.ch/url/3951210/ |
+| http://31.56.52.6/main_arm7     | url        | N/A          | URLhaus  | 2026-10-17 07:24:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3951196/ |
+| http://31.56.52.6/main_mpsl     | url        | N/A          | URLhaus  | 2026-10-17 07:24:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3951197/ |
+| http://31.56.52.6/main_m68k     | url        | N/A          | URLhaus  | 2026-10-17 07:24:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3951198/ |
+| http://31.56.52.6/main_arm5     | url        | N/A          | URLhaus  | 2026-10-17 07:24:20 | online       | malware_download | https://urlhaus.abuse.ch/url/3951199/ |
 
 ---
 
@@ -890,6 +890,7 @@ exact match between a source IP and an indicator explicitly typed as an IP.
 ![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
