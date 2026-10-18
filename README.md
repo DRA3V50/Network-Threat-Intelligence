@@ -119,7 +119,7 @@ This project is intended for **authorized defensive security, threat-intelligenc
 <!-- AUTO-GENERATED-START -->
 
 ## Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** 2026-10-18 07:47 UTC
+**Last Updated (UTC):** 2026-10-18 14:19 UTC
 
 > Feed indicators are not proof of compromise. Network matches below
 > are exact source-IP matches only. Packet volume alone does not establish
@@ -130,16 +130,16 @@ This project is intended for **authorized defensive security, threat-intelligenc
 ## Threat Intelligence Feed Indicators
 **Source:** URLhaus and any other sources explicitly recorded in the feed.
 
-| ioc_value                         | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
-|:----------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://220.161.160.148:39073/i    | url        | N/A          | URLhaus  | 2026-10-18 07:32:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3951778/ |
-| http://219.157.254.40:41021/i     | url        | N/A          | URLhaus  | 2026-10-18 07:32:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3951779/ |
-| http://42.230.39.96:47720/bin.sh  | url        | N/A          | URLhaus  | 2026-10-18 07:18:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3951777/ |
-| http://61.53.135.200:51468/bin.sh | url        | N/A          | URLhaus  | 2026-10-18 07:17:10 | online       | malware_download | https://urlhaus.abuse.ch/url/3951775/ |
-| http://61.53.135.200:51468/i      | url        | N/A          | URLhaus  | 2026-10-18 07:17:10 | online       | malware_download | https://urlhaus.abuse.ch/url/3951776/ |
-| http://112.226.204.29:59814/i     | url        | N/A          | URLhaus  | 2026-10-18 07:15:38 | online       | malware_download | https://urlhaus.abuse.ch/url/3951774/ |
-| http://59.180.135.152:41296/i     | url        | N/A          | URLhaus  | 2026-10-18 07:02:36 | online       | malware_download | https://urlhaus.abuse.ch/url/3951773/ |
-| http://59.97.251.59:46282/i       | url        | N/A          | URLhaus  | 2026-10-18 07:02:10 | online       | malware_download | https://urlhaus.abuse.ch/url/3951769/ |
+| ioc_value                                                      | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:---------------------------------------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://27.44.146.197:56881/i                                   | url        | N/A          | URLhaus  | 2026-10-18 14:02:22 | online       | malware_download | https://urlhaus.abuse.ch/url/3951902/ |
+| http://36.251.33.146:48437/i                                   | url        | N/A          | URLhaus  | 2026-10-18 14:02:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3951901/ |
+| http://113.53.69.164:35455/i                                   | url        | N/A          | URLhaus  | 2026-10-18 13:53:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951900/ |
+| http://113.53.69.164:35455/bin.sh                              | url        | N/A          | URLhaus  | 2026-10-18 13:52:17 | online       | malware_download | https://urlhaus.abuse.ch/url/3951899/ |
+| http://ray-id-v3.com/g84kfS5n/Uploads/build_amd.exe_Melted.exe | url        | N/A          | URLhaus  | 2026-10-18 13:47:15 | offline      | malware_download | https://urlhaus.abuse.ch/url/3951898/ |
+| http://119.109.235.52:43705/bin.sh                             | url        | N/A          | URLhaus  | 2026-10-18 13:41:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3951897/ |
+| http://60.22.43.108:55415/bin.sh                               | url        | N/A          | URLhaus  | 2026-10-18 13:37:26 | offline      | malware_download | https://urlhaus.abuse.ch/url/3951896/ |
+| http://182.127.155.165:39688/i                                 | url        | N/A          | URLhaus  | 2026-10-18 13:31:25 | online       | malware_download | https://urlhaus.abuse.ch/url/3951892/ |
 
 ---
 
@@ -176,5 +176,6 @@ exact match between a source IP and an indicator explicitly typed as an IP.
 ![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
