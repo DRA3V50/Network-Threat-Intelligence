@@ -118,64 +118,58 @@ This project is intended for **authorized defensive security, threat-intelligenc
 
 <!-- AUTO-GENERATED-START -->
 
-## Enterprise Security Intelligence Dashboard
-**Last Updated (UTC):** 2026-10-18 14:19 UTC
+## Security Intelligence Dashboard
 
-> Feed indicators are not proof of compromise. Network matches below
-> are exact source-IP matches only. Packet volume alone does not establish
-> malicious behavior. Vulnerability records depend on the input dataset.
+**Last updated (UTC):** 2026-10-18 18:07 UTC
 
----
+> External threat intelligence is not proof of compromise. CISA KEV records are not local scan findings. Packet volume alone does not establish malicious behavior.
 
-## Threat Intelligence Feed Indicators
-**Source:** URLhaus and any other sources explicitly recorded in the feed.
+### Data coverage
 
-| ioc_value                                                      | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
-|:---------------------------------------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://27.44.146.197:56881/i                                   | url        | N/A          | URLhaus  | 2026-10-18 14:02:22 | online       | malware_download | https://urlhaus.abuse.ch/url/3951902/ |
-| http://36.251.33.146:48437/i                                   | url        | N/A          | URLhaus  | 2026-10-18 14:02:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3951901/ |
-| http://113.53.69.164:35455/i                                   | url        | N/A          | URLhaus  | 2026-10-18 13:53:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951900/ |
-| http://113.53.69.164:35455/bin.sh                              | url        | N/A          | URLhaus  | 2026-10-18 13:52:17 | online       | malware_download | https://urlhaus.abuse.ch/url/3951899/ |
-| http://ray-id-v3.com/g84kfS5n/Uploads/build_amd.exe_Melted.exe | url        | N/A          | URLhaus  | 2026-10-18 13:47:15 | offline      | malware_download | https://urlhaus.abuse.ch/url/3951898/ |
-| http://119.109.235.52:43705/bin.sh                             | url        | N/A          | URLhaus  | 2026-10-18 13:41:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3951897/ |
-| http://60.22.43.108:55415/bin.sh                               | url        | N/A          | URLhaus  | 2026-10-18 13:37:26 | offline      | malware_download | https://urlhaus.abuse.ch/url/3951896/ |
-| http://182.127.155.165:39688/i                                 | url        | N/A          | URLhaus  | 2026-10-18 13:31:25 | online       | malware_download | https://urlhaus.abuse.ch/url/3951892/ |
+![Security Data Coverage](https://raw.githubusercontent.com/DRA3V50/Network-Threat-Intelligence/main/build/charts/composite_threat.png)
 
----
+### Threat-feed indicators
 
-## Vulnerability Records
-**Note:** Verify whether the input is from an actual scanner or a sample dataset.
+Source: [URLhaus](https://urlhaus.abuse.ch/) and sources recorded in the dataset. Confidence is shown as `N/A` when not provided by the source.
 
-| vulnerability   | severity   | severity_score   | risk_score   | source   | date_added   | vendor             | product              | description                                                                                                                                                                                                                                                                                                                                                                                                                 | required_action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | due_date   | known_ransomware_use   | record_type                                   |
-|:----------------|:-----------|:-----------------|:-------------|:---------|:-------------|:-------------------|:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------|:-----------------------|:----------------------------------------------|
-| CVE-2026-102764 | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-16   | BeyondTrust        | Remote Support       | BeyondTrust Remote Support contains an authentication bypass by spoofing vulnerability that could allow a remote attacker to perform file operations on the appliance.                                                                                                                                                                                                                                                      | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-19 | Unknown                | Threat intelligence; not a local scan finding |
-| CVE-2025-61624  | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-16   | Fortinet           | Multiple Products    | FortiOS, FortiPAM, FortiProxy, and FortiSwitchManager contain a path traversal vulnerability that may allow an authenticated attacker with admin profile and at least read-write permissions to write or delete arbitrary files via specific CLI commands.                                                                                                                                                                  | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-19 | Unknown                | Threat intelligence; not a local scan finding |
-| CVE-2026-21589  | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-15   | Atlassian          | Multiple Products    | Multiple Atlassian products (Bitbucket Data Center ,Confluence Data Center, Jira Service Management Data Center, Jira Software Data Center, Bamboo Data Center, Crowd Data Center, Crucible and Fisheye) contain a files or directories accessible to external parties vulnerability which could allow an unauthenticated attacker to access specific files within the web application root directory in affected versions. | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-18 | Unknown                | Threat intelligence; not a local scan finding |
-| CVE-2026-105134 | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-14   | Ahsay              | AhsayCBS             | Ahsay AhsayCBS contains a command injection vulnerability that could allow a remote attacker to execute operating system commands via manipulation of the random parameter in the Replication Receiver component’s /rps/api/json/UpdateReceivers.do endpoint. This vulnerability can be chained with CVE-2026-105133.                                                                                                       | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-17 | Unknown                | Threat intelligence; not a local scan finding |
-| CVE-2026-76519  | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-14   | Cisco              | Secure Email Gateway | Cisco Secure Email Gateway contains a relative path traversal vulnerability that could allow an unauthenticated, remote attacker to write arbitrary files on the underlying operating system.                                                                                                                                                                                                                               | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-17 | Unknown                | Threat intelligence; not a local scan finding |
-| CVE-2026-105133 | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-14   | Ahsay              | AhsayCBS             | Ahsay AhsayCBS contains an improper authentication vulnerability that could allow a remote attacker to bypass authentication via manipulation of the random parameter in the API component’s checkSysPwd function. This vulnerability can be chained with CVE-2026-105134.                                                                                                                                                  | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-17 | Unknown                | Threat intelligence; not a local scan finding |
-| CVE-2026-0322   | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-14   | Palo Alto Networks | PAN-OS               | Palo Alto Networks PAN-OS contains a code injection vulnerability that could allow an authenticated attacker with network access to execute arbitrary code with root privileges on the firewall.                                                                                                                                                                                                                            | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-17 | Unknown                | Threat intelligence; not a local scan finding |
-| CVE-2026-104935 | Unknown    | N/A              | N/A          | CISA KEV | 2026-10-13   | Ivanti             | Connect Secure       | Ivanti Connect Secure contains an authentication bypass by spoofing vulnerability that allows a remote unauthenticated attacker to execute arbitrary commands.                                                                                                                                                                                                                                                              | Apply mitigations in accordance with vendor instructions, ensuring compliance with CISA’s BOD 26-04 Prioritizing Security Updates Based on Risk (see URL in Notes) guidance and CISA’s “Forensics Triage Requirements” (see URL in Notes). Follow applicable BOD 26-04 guidance for cloud services or discontinue use of the product if mitigations are unavailable. Stakeholders are responsible for evaluating each asset's internet exposure and ensuring adherence to BOD 26-04 patching guidelines. | 2026-10-16 | Unknown                | Threat intelligence; not a local scan finding |
+| ioc_value                         | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:----------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://61.54.235.31:36551/i       | url        | N/A          | URLhaus  | 2026-10-18 17:46:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951949/ |
+| http://103.140.87.105:45962/i     | url        | N/A          | URLhaus  | 2026-10-18 17:46:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951950/ |
+| http://60.17.117.178:52362/i      | url        | N/A          | URLhaus  | 2026-10-18 17:31:25 | online       | malware_download | https://urlhaus.abuse.ch/url/3951947/ |
+| http://191.243.174.35:44365/i     | url        | N/A          | URLhaus  | 2026-10-18 17:31:25 | online       | malware_download | https://urlhaus.abuse.ch/url/3951948/ |
+| http://61.52.1.72:59868/i         | url        | N/A          | URLhaus  | 2026-10-18 17:17:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951946/ |
+| http://210.208.111.36:33179/i     | url        | N/A          | URLhaus  | 2026-10-18 17:17:18 | online       | malware_download | https://urlhaus.abuse.ch/url/3951945/ |
+| http://119.102.73.19:43236/bin.sh | url        | N/A          | URLhaus  | 2026-10-18 16:50:22 | online       | malware_download | https://urlhaus.abuse.ch/url/3951944/ |
+| http://61.53.135.7:46609/i        | url        | N/A          | URLhaus  | 2026-10-18 16:49:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3951943/ |
 
----
+### Known-exploited vulnerability intelligence
 
-## Security Data Coverage
-![Security Data Coverage](build/charts/composite_threat.png)
+Source: [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). These records describe known-exploited vulnerabilities; they do not confirm that this repository owner's systems are affected. Remediation guidance is retained in the CSV output.
 
----
+| vulnerability   | vendor             | product              | date_added   | known_ransomware_use   | source   |
+|:----------------|:-------------------|:---------------------|:-------------|:-----------------------|:---------|
+| CVE-2026-102764 | BeyondTrust        | Remote Support       | 2026-10-16   | Unknown                | CISA KEV |
+| CVE-2025-61624  | Fortinet           | Multiple Products    | 2026-10-16   | Unknown                | CISA KEV |
+| CVE-2026-21589  | Atlassian          | Multiple Products    | 2026-10-15   | Unknown                | CISA KEV |
+| CVE-2026-105134 | Ahsay              | AhsayCBS             | 2026-10-14   | Unknown                | CISA KEV |
+| CVE-2026-76519  | Cisco              | Secure Email Gateway | 2026-10-14   | Unknown                | CISA KEV |
+| CVE-2026-105133 | Ahsay              | AhsayCBS             | 2026-10-14   | Unknown                | CISA KEV |
+| CVE-2026-0322   | Palo Alto Networks | PAN-OS               | 2026-10-14   | Unknown                | CISA KEV |
+| CVE-2026-104935 | Ivanti             | Connect Secure       | 2026-10-13   | Unknown                | CISA KEV |
+| CVE-2026-96951  | Microsoft          | Windows              | 2026-10-13   | Unknown                | CISA KEV |
+| CVE-2015-5477   | ISC                | BIND                 | 2026-10-08   | Unknown                | CISA KEV |
 
-## Observed Network Traffic
-The chart reports packet counts from the network CSV. Gold bars indicate an
-exact match between a source IP and an indicator explicitly typed as an IP.
+![CISA KEV Records by Vendor](https://raw.githubusercontent.com/DRA3V50/Network-Threat-Intelligence/main/build/charts/vulnerability_distribution.png)
 
-![Observed Network Traffic](build/charts/network_behavior.png)
+### Observed network traffic
 
----
+The chart shows packet counts from the supplied network CSV. Gold bars indicate an exact source-IP match to an indicator explicitly typed as an IP address. No such match is inferred from a URL alone.
 
-## Vulnerability Records by Reported Severity
-![Vulnerability Distribution](build/charts/vulnerability_distribution.png)
+![Observed Network Traffic](https://raw.githubusercontent.com/DRA3V50/Network-Threat-Intelligence/main/build/charts/network_behavior.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
