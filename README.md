@@ -120,7 +120,7 @@ This project is intended for **authorized defensive security, threat-intelligenc
 
 ## Security Intelligence Dashboard
 
-**Last updated (UTC):** 2026-10-19 08:30 UTC
+**Last updated (UTC):** 2026-10-19 17:20 UTC
 
 > External threat intelligence is not proof of compromise. CISA KEV records are not local scan findings. Packet volume alone does not establish malicious behavior.
 
@@ -132,16 +132,16 @@ This project is intended for **authorized defensive security, threat-intelligenc
 
 Source: [URLhaus](https://urlhaus.abuse.ch/) and sources recorded in the dataset. Confidence is shown as `N/A` when not provided by the source.
 
-| ioc_value                          | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
-|:-----------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://59.96.136.108:46282/bin.sh  | url        | N/A          | URLhaus  | 2026-10-19 08:17:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3952262/ |
-| http://182.119.199.112:45841/i     | url        | N/A          | URLhaus  | 2026-10-19 08:17:13 | online       | malware_download | https://urlhaus.abuse.ch/url/3952259/ |
-| http://182.113.195.83:60679/i      | url        | N/A          | URLhaus  | 2026-10-19 08:17:13 | online       | malware_download | https://urlhaus.abuse.ch/url/3952260/ |
-| http://42.5.58.30:49850/i          | url        | N/A          | URLhaus  | 2026-10-19 08:17:13 | online       | malware_download | https://urlhaus.abuse.ch/url/3952261/ |
-| http://42.233.211.139:32917/i      | url        | N/A          | URLhaus  | 2026-10-19 08:02:26 | online       | malware_download | https://urlhaus.abuse.ch/url/3952258/ |
-| http://103.171.168.74:45242/i      | url        | N/A          | URLhaus  | 2026-10-19 08:02:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3952257/ |
-| http://115.53.209.120:41356/bin.sh | url        | N/A          | URLhaus  | 2026-10-19 08:02:13 | online       | malware_download | https://urlhaus.abuse.ch/url/3952256/ |
-| http://125.43.125.69:42510/i       | url        | N/A          | URLhaus  | 2026-10-19 08:02:12 | online       | malware_download | https://urlhaus.abuse.ch/url/3952255/ |
+| ioc_value                                                                             | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:--------------------------------------------------------------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://120.84.212.234:35060/i                                                         | url        | N/A          | URLhaus  | 2026-10-19 16:57:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3952389/ |
+| https://raw.githubusercontent.com/jewfijwehnf/clients2/main/kryptonclient-1.21.11.jar | url        | N/A          | URLhaus  | 2026-10-19 16:49:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3952388/ |
+| http://110.83.135.252:46074/bin.sh                                                    | url        | N/A          | URLhaus  | 2026-10-19 16:48:23 | online       | malware_download | https://urlhaus.abuse.ch/url/3952387/ |
+| https://raw.githubusercontent.com/jewfijwehnf/clients2/main/dqrkisclient-1.21.11.jar  | url        | N/A          | URLhaus  | 2026-10-19 16:48:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3952382/ |
+| https://raw.githubusercontent.com/jewfijwehnf/clients3/main/zyronclient-1.21.11.jar   | url        | N/A          | URLhaus  | 2026-10-19 16:48:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3952383/ |
+| https://raw.githubusercontent.com/jewfijwehnf/yo/main/corzclient-1.21.11.jar          | url        | N/A          | URLhaus  | 2026-10-19 16:48:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3952384/ |
+| https://raw.githubusercontent.com/jewfijwehnf/clients2/main/frostclient-1.21.11.jar   | url        | N/A          | URLhaus  | 2026-10-19 16:48:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3952385/ |
+| https://raw.githubusercontent.com/jewfijwehnf/clients3/main/Goobaclient-1.21.11.jar   | url        | N/A          | URLhaus  | 2026-10-19 16:48:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3952386/ |
 
 ### Known-exploited vulnerability intelligence
 
@@ -169,6 +169,7 @@ The chart shows packet counts from the supplied network CSV. Gold bars indicate 
 ![Observed Network Traffic](https://raw.githubusercontent.com/DRA3V50/Network-Threat-Intelligence/main/build/charts/network_behavior.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
