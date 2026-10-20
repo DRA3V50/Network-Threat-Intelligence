@@ -120,7 +120,7 @@ This project is intended for **authorized defensive security, threat-intelligenc
 
 ## Security Intelligence Dashboard
 
-**Last updated (UTC):** 2026-10-19 22:48 UTC
+**Last updated (UTC):** 2026-10-20 08:12 UTC
 
 > External threat intelligence is not proof of compromise. CISA KEV records are not local scan findings. Packet volume alone does not establish malicious behavior.
 
@@ -132,16 +132,16 @@ This project is intended for **authorized defensive security, threat-intelligenc
 
 Source: [URLhaus](https://urlhaus.abuse.ch/) and sources recorded in the dataset. Confidence is shown as `N/A` when not provided by the source.
 
-| ioc_value                           | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
-|:------------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://27.44.146.42:38129/i         | url        | N/A          | URLhaus  | 2026-10-19 22:22:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3952444/ |
-| http://61.53.82.240:56561/bin.sh    | url        | N/A          | URLhaus  | 2026-10-19 22:10:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3952443/ |
-| http://117.223.140.202:46714/i      | url        | N/A          | URLhaus  | 2026-10-19 22:02:18 | online       | malware_download | https://urlhaus.abuse.ch/url/3952442/ |
-| http://123.4.184.108:39954/i        | url        | N/A          | URLhaus  | 2026-10-19 21:59:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3952441/ |
-| http://182.124.72.63:53782/i        | url        | N/A          | URLhaus  | 2026-10-19 21:47:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3952439/ |
-| http://182.121.109.31:33067/i       | url        | N/A          | URLhaus  | 2026-10-19 21:47:08 | online       | malware_download | https://urlhaus.abuse.ch/url/3952440/ |
-| http://103.172.186.147:41422/bin.sh | url        | N/A          | URLhaus  | 2026-10-19 21:37:05 | online       | malware_download | https://urlhaus.abuse.ch/url/3952438/ |
-| http://60.23.236.228:56642/i        | url        | N/A          | URLhaus  | 2026-10-19 21:32:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3952436/ |
+| ioc_value                          | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
+|:-----------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
+| http://182.127.178.64:45042/bin.sh | url        | N/A          | URLhaus  | 2026-10-20 08:03:18 | online       | malware_download | https://urlhaus.abuse.ch/url/3952936/ |
+| http://27.215.143.87:33433/bin.sh  | url        | N/A          | URLhaus  | 2026-10-20 08:02:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3952935/ |
+| http://176.65.139.148/bins/arm5    | url        | N/A          | URLhaus  | 2026-10-20 07:58:17 | online       | malware_download | https://urlhaus.abuse.ch/url/3952934/ |
+| http://42.228.32.100:37587/bin.sh  | url        | N/A          | URLhaus  | 2026-10-20 07:53:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3952933/ |
+| http://183.35.50.224:38590/bin.sh  | url        | N/A          | URLhaus  | 2026-10-20 07:49:16 | online       | malware_download | https://urlhaus.abuse.ch/url/3952932/ |
+| http://42.225.69.1:56329/bin.sh    | url        | N/A          | URLhaus  | 2026-10-20 07:34:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3952931/ |
+| http://118.251.13.202:40966/bin.sh | url        | N/A          | URLhaus  | 2026-10-20 07:31:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3952930/ |
+| http://123.11.4.67:51620/i         | url        | N/A          | URLhaus  | 2026-10-20 07:29:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3952929/ |
 
 ### Known-exploited vulnerability intelligence
 
@@ -169,6 +169,7 @@ The chart shows packet counts from the supplied network CSV. Gold bars indicate 
 ![Observed Network Traffic](https://raw.githubusercontent.com/DRA3V50/Network-Threat-Intelligence/main/build/charts/network_behavior.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
