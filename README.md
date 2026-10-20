@@ -120,7 +120,7 @@ This project is intended for **authorized defensive security, threat-intelligenc
 
 ## Security Intelligence Dashboard
 
-**Last updated (UTC):** 2026-10-20 15:33 UTC
+**Last updated (UTC):** 2026-10-20 22:07 UTC
 
 > External threat intelligence is not proof of compromise. CISA KEV records are not local scan findings. Packet volume alone does not establish malicious behavior.
 
@@ -134,31 +134,31 @@ Source: [URLhaus](https://urlhaus.abuse.ch/) and sources recorded in the dataset
 
 | ioc_value                          | ioc_type   | confidence   | source   | date_added          | url_status   | threat           | urlhaus_reference                     |
 |:-----------------------------------|:-----------|:-------------|:---------|:--------------------|:-------------|:-----------------|:--------------------------------------|
-| http://123.11.122.246:52345/bin.sh | url        | N/A          | URLhaus  | 2026-10-20 15:07:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3952989/ |
-| http://115.48.33.19:58390/bin.sh   | url        | N/A          | URLhaus  | 2026-10-20 15:04:22 | online       | malware_download | https://urlhaus.abuse.ch/url/3952988/ |
-| http://103.66.176.192:58367/bin.sh | url        | N/A          | URLhaus  | 2026-10-20 15:03:17 | online       | malware_download | https://urlhaus.abuse.ch/url/3952987/ |
-| http://31.56.209.86/armv6l         | url        | N/A          | URLhaus  | 2026-10-20 14:58:07 | online       | malware_download | https://urlhaus.abuse.ch/url/3952986/ |
-| http://176.65.132.23/arm           | url        | N/A          | URLhaus  | 2026-10-20 14:57:17 | online       | malware_download | https://urlhaus.abuse.ch/url/3952985/ |
-| http://176.65.132.23/sh4           | url        | N/A          | URLhaus  | 2026-10-20 14:57:16 | online       | malware_download | https://urlhaus.abuse.ch/url/3952978/ |
-| http://176.65.132.23/arm6          | url        | N/A          | URLhaus  | 2026-10-20 14:57:16 | online       | malware_download | https://urlhaus.abuse.ch/url/3952979/ |
-| http://176.65.132.23/arm7          | url        | N/A          | URLhaus  | 2026-10-20 14:57:16 | online       | malware_download | https://urlhaus.abuse.ch/url/3952980/ |
+| http://175.170.11.184:58959/bin.sh | url        | N/A          | URLhaus  | 2026-10-20 22:00:19 | online       | malware_download | https://urlhaus.abuse.ch/url/3953092/ |
+| http://222.141.63.159:57872/i      | url        | N/A          | URLhaus  | 2026-10-20 21:51:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3953091/ |
+| http://31.56.209.86/i586           | url        | N/A          | URLhaus  | 2026-10-20 21:43:14 | online       | malware_download | https://urlhaus.abuse.ch/url/3953090/ |
+| http://176.65.139.47/arm           | url        | N/A          | URLhaus  | 2026-10-20 21:42:16 | online       | malware_download | https://urlhaus.abuse.ch/url/3953089/ |
+| http://176.65.139.47/arm5          | url        | N/A          | URLhaus  | 2026-10-20 21:42:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3953085/ |
+| http://176.65.139.47/mips          | url        | N/A          | URLhaus  | 2026-10-20 21:42:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3953086/ |
+| http://176.65.139.47/arm7          | url        | N/A          | URLhaus  | 2026-10-20 21:42:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3953087/ |
+| http://176.65.139.47/sh4           | url        | N/A          | URLhaus  | 2026-10-20 21:42:15 | online       | malware_download | https://urlhaus.abuse.ch/url/3953088/ |
 
 ### Known-exploited vulnerability intelligence
 
 Source: [CISA Known Exploited Vulnerabilities Catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). These records describe known-exploited vulnerabilities; they do not confirm that this repository owner's systems are affected. Remediation guidance is retained in the CSV output.
 
-| vulnerability   | vendor             | product              | date_added   | known_ransomware_use   | source   |
-|:----------------|:-------------------|:---------------------|:-------------|:-----------------------|:---------|
-| CVE-2026-102764 | BeyondTrust        | Remote Support       | 2026-10-16   | Unknown                | CISA KEV |
-| CVE-2025-61624  | Fortinet           | Multiple Products    | 2026-10-16   | Unknown                | CISA KEV |
-| CVE-2026-21589  | Atlassian          | Multiple Products    | 2026-10-15   | Unknown                | CISA KEV |
-| CVE-2026-105134 | Ahsay              | AhsayCBS             | 2026-10-14   | Unknown                | CISA KEV |
-| CVE-2026-76519  | Cisco              | Secure Email Gateway | 2026-10-14   | Unknown                | CISA KEV |
-| CVE-2026-105133 | Ahsay              | AhsayCBS             | 2026-10-14   | Unknown                | CISA KEV |
-| CVE-2026-0322   | Palo Alto Networks | PAN-OS               | 2026-10-14   | Unknown                | CISA KEV |
-| CVE-2026-104935 | Ivanti             | Connect Secure       | 2026-10-13   | Unknown                | CISA KEV |
-| CVE-2026-96951  | Microsoft          | Windows              | 2026-10-13   | Unknown                | CISA KEV |
-| CVE-2015-5477   | ISC                | BIND                 | 2026-10-08   | Unknown                | CISA KEV |
+| vulnerability   | vendor              | product                  | date_added   | known_ransomware_use   | source   |
+|:----------------|:--------------------|:-------------------------|:-------------|:-----------------------|:---------|
+| CVE-2026-106931 | EG Secure Solutions | SiteGuard Server Edition | 2026-10-20   | Unknown                | CISA KEV |
+| CVE-2026-96656  | Plex                | Media Server             | 2026-10-20   | Unknown                | CISA KEV |
+| CVE-2026-96655  | Plex                | Media Server             | 2026-10-20   | Unknown                | CISA KEV |
+| CVE-2026-96654  | Plex                | Media Server             | 2026-10-20   | Unknown                | CISA KEV |
+| CVE-2026-96652  | Plex                | Media Server             | 2026-10-20   | Unknown                | CISA KEV |
+| CVE-2026-110936 | Siemens             | Software Center          | 2026-10-20   | Unknown                | CISA KEV |
+| CVE-2026-102764 | BeyondTrust         | Remote Support           | 2026-10-16   | Unknown                | CISA KEV |
+| CVE-2025-61624  | Fortinet            | Multiple Products        | 2026-10-16   | Unknown                | CISA KEV |
+| CVE-2026-21589  | Atlassian           | Multiple Products        | 2026-10-15   | Unknown                | CISA KEV |
+| CVE-2026-105134 | Ahsay               | AhsayCBS                 | 2026-10-14   | Unknown                | CISA KEV |
 
 ![CISA KEV Records by Vendor](https://raw.githubusercontent.com/DRA3V50/Network-Threat-Intelligence/main/build/charts/vulnerability_distribution.png)
 
@@ -169,6 +169,7 @@ The chart shows packet counts from the supplied network CSV. Gold bars indicate 
 ![Observed Network Traffic](https://raw.githubusercontent.com/DRA3V50/Network-Threat-Intelligence/main/build/charts/network_behavior.png)
 
 <!-- AUTO-GENERATED-END -->
+
 
 
 
